@@ -12,6 +12,7 @@ public class Student {
     private ArrayList<Module> modules;
 
     public Student(String name, int age, String dateOfBirth, int id, Course course, ArrayList<Module> modules) {
+        modules = new ArrayList<Module>();
         this.name = name;
         this.age = age;
         this.dateOfBirth = dateOfBirth;
