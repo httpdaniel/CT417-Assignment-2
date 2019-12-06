@@ -1,12 +1,13 @@
 package com.daniel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Module {
     private String moduleName;
     private String moduleID;
-    private ArrayList<Student> students;
-    private ArrayList<Course> courses;
+    private List<Student> students;
+    private List<Course> courses;
 
     public Module(String moduleName, String moduleID) {
         students = new ArrayList<>();
@@ -37,7 +38,7 @@ public class Module {
 
     // Students getter and setter
 
-    public ArrayList<Student> getStudents() {
+    public List<Student> getStudents() {
         return students;
     }
 
@@ -47,7 +48,7 @@ public class Module {
 
     // Course getter and setter
 
-    public ArrayList<Course> getCourses() {
+    public List<Course> getCourses() {
         return courses;
     }
 

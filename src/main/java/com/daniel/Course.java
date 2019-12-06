@@ -3,11 +3,12 @@ package com.daniel;
 import org.joda.time.DateTime;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Course {
     private String courseName;
-    private ArrayList<Module> modules;
-    private ArrayList<Student> students;
+    private List<Module> modules;
+    private List<Student> students;
     private DateTime startDate;
     private DateTime endDate;
 
@@ -31,7 +32,7 @@ public class Course {
 
     // Modules getter and setter
 
-    public ArrayList<Module> getModules() {
+    public List<Module> getModules() {
         return modules;
     }
 
@@ -41,7 +42,7 @@ public class Course {
 
    // Students getter and setter
 
-    public ArrayList<Student> getStudents() {
+    public List<Student> getStudents() {
         return students;
     }
 

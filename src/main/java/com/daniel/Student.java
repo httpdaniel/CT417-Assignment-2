@@ -4,6 +4,7 @@ import org.joda.time.DateTime;
 import org.joda.time.Years;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Student {
     private String name;
@@ -12,7 +13,7 @@ public class Student {
     private int id;
     private String username;
     private Course course;
-    private ArrayList<Module> modules;
+    private List<Module> modules;
 
     public Student(String name, DateTime dateOfBirth, int id) {
         modules = new ArrayList<>();
@@ -67,7 +68,9 @@ public class Student {
     // Username getter and setter
 
     public String getUsername() {
-        return name + age; // Concatenation of name and age
+        String user = name + age;
+        user = user.replaceAll("\\s+",""); // Remove whitespace from name
+        return user; // Concatenation of name and age
     }
 
     public void setUsername(String username) {
@@ -76,8 +79,8 @@ public class Student {
 
     // Course getter and setter
 
-    public Course getCourse() {
-        return course;
+    public String getCourse() {
+        return course.getCourseName();
     }
 
     public void setCourse(Course course) {
@@ -86,12 +89,12 @@ public class Student {
 
     // Modules getter and setter
 
-    public ArrayList<Module> getModules() {
+    public List<Module> getModules() {
         return modules;
     }
 
     public void addModule(Module module) {
-        modules.add(module); // Add module to array list
+        modules.add(module); // Add module to list
     }
 
     // toString method
