@@ -3,49 +3,64 @@ package com.daniel;
 import java.util.ArrayList;
 
 public class Module {
-    private String name;
-    private String id;
+    private String moduleName;
+    private String moduleID;
     private ArrayList<Student> students;
     private ArrayList<Course> courses;
 
-    public Module(String name, String id, ArrayList<Student> students, ArrayList<Course> courses) {
+    public Module(String moduleName, String moduleID) {
         students = new ArrayList<>();
         courses = new ArrayList<>();
-        this.name = name;
-        this.id = id;
-        this.students = students;
-        this.courses = courses;
+        this.moduleName = moduleName;
+        this.moduleID = moduleID;
     }
 
-    public String getName() {
-        return name;
+    // Module name getter and setter
+
+    public String getModuleName() {
+        return moduleName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setModuleName(String moduleName) {
+        this.moduleName = moduleName;
     }
 
-    public String getId() {
-        return id;
+    // Module ID getter and setter
+
+    public String getModuleID() {
+        return moduleID;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setModuleID(String moduleID) {
+        this.moduleID = moduleID;
     }
+
+    // Students getter and setter
 
     public ArrayList<Student> getStudents() {
         return students;
     }
 
-    public void setStudents(ArrayList<Student> students) {
-        this.students = students;
+    public void addStudent(Student student) {
+        students.add(student);
     }
+
+    // Course getter and setter
 
     public ArrayList<Course> getCourses() {
         return courses;
     }
 
-    public void setCourses(ArrayList<Course> courses) {
-        this.courses = courses;
+    public void addCourse(Course course) {
+        courses.add(course);
+    }
+
+    // toString method
+
+    public String toString() {
+        return "Module: " + moduleName + "\n"
+                + "Module ID: " + moduleID + "\n"
+                + "Registered students: " + students + "\n"
+                + "Associated courses: " + courses;
     }
 }

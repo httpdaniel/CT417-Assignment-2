@@ -1,26 +1,29 @@
 package com.daniel;
 
+import org.joda.time.DateTime;
+import org.joda.time.Years;
+
 import java.util.ArrayList;
 
 public class Student {
     private String name;
     private int age;
-    private String dateOfBirth;
+    private DateTime dateOfBirth;
     private int id;
     private String username;
     private Course course;
     private ArrayList<Module> modules;
 
-    public Student(String name, int age, String dateOfBirth, int id, Course course, ArrayList<Module> modules) {
+    public Student(String name, DateTime dateOfBirth, int id) {
         modules = new ArrayList<>();
         this.name = name;
-        this.age = age;
         this.dateOfBirth = dateOfBirth;
         this.id = id;
-        this.course = course;
-        this.modules = modules;
-        this.username = setUsername();
+        this.age = getAge();
+        this.username = getUsername();
     }
+
+    // Name getter and setter
 
     public String getName() {
         return name;
@@ -30,21 +33,28 @@ public class Student {
         this.name = name;
     }
 
+    // Age getter and setter
+
     public int getAge() {
-        return age;
+        Years years = Years.yearsBetween(getDateOfBirth(), new DateTime()); // Find number of years between date of birth and current date
+        return years.getYears();
     }
 
     public void setAge(int age) {
         this.age = age;
     }
 
-    public String getDateOfBirth() {
+    // Date of birth getter and setter
+
+    public DateTime getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(DateTime dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
+    // ID getter and setter
 
     public int getId() {
         return id;
@@ -54,14 +64,17 @@ public class Student {
         this.id = id;
     }
 
+    // Username getter and setter
+
     public String getUsername() {
-        return username;
+        return name + age; // Concatenation of name and age
     }
 
-    public String setUsername() {
-        username = name+Integer.toString(age);
-        return username;
+    public void setUsername(String username) {
+        this.username = username;
     }
+
+    // Course getter and setter
 
     public Course getCourse() {
         return course;
@@ -71,11 +84,25 @@ public class Student {
         this.course = course;
     }
 
+    // Modules getter and setter
+
     public ArrayList<Module> getModules() {
         return modules;
     }
 
-    public void setModules(ArrayList<Module> modules) {
-        this.modules = modules;
+    public void addModule(Module module) {
+        modules.add(module); // Add module to array list
+    }
+
+    // toString method
+
+    public String toString() {
+        return "Name: " + name + "\n"
+                + "Date of birth: " + dateOfBirth + "\n"
+                + "Age: " + age + "\n"
+                + "ID: " + id + "\n"
+                + "Username: " + username + "\n"
+                + "Course: " + course + "\n"
+                + "Modules:" + modules;
     }
 }

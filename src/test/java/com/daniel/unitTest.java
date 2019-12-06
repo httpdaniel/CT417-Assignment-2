@@ -1,5 +1,10 @@
 package com.daniel;
 
-public class unitTest {
+import org.junit.Test;
 
+
+public class unitTest {
+    @Test
+    public void testStudent() {
+    }
 }
